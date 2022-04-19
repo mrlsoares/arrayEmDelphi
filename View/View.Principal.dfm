@@ -10,6 +10,7 @@ object Form1: TForm1
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 15
   object BitBtn1: TBitBtn
@@ -30,16 +31,16 @@ object Form1: TForm1
     TabOrder = 1
   end
   object edtNome: TEdit
-    Left = 8
-    Top = 128
-    Width = 121
+    Left = 47
+    Top = 88
+    Width = 162
     Height = 23
     TabOrder = 2
   end
   object SpinId: TSpinEdit
     Left = 9
     Top = 88
-    Width = 121
+    Width = 32
     Height = 24
     MaxValue = 9
     MinValue = 0
@@ -48,20 +49,29 @@ object Form1: TForm1
   end
   object Button1: TButton
     Left = 8
-    Top = 168
-    Width = 121
+    Top = 118
+    Width = 75
     Height = 25
     Caption = 'Escrever'
     TabOrder = 4
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 8
-    Top = 199
-    Width = 121
+    Left = 89
+    Top = 118
+    Width = 57
     Height = 25
     Caption = 'Ler'
     TabOrder = 5
     OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 8
+    Top = 149
+    Width = 138
+    Height = 25
+    Caption = 'Ler todo array'
+    TabOrder = 6
+    OnClick = Button3Click
   end
 end
