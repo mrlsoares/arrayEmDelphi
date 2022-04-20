@@ -22,6 +22,7 @@ type
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,6 +32,8 @@ type
 var
   Form1: TForm1;
   Nomes: array [0 .. 9] of string;
+  inteiros : array [0 .. 9] of Integer;
+  flutante : array [0 .. 9] of Double;
 
 implementation
 
@@ -53,12 +56,17 @@ end;
 procedure TForm1.Button2Click(Sender: TObject);
 var
   mensagem: string;
+  retorno :integer;
 begin
   mensagem := 'Nome: ' + Nomes[SpinId.Value];
+  retorno := MessageDlg(mensagem, TMsgDlgType.mtError, [mbOK,TMsgDlgBtn.mbYes,TMsgDlgBtn.mbCancel,TMsgDlgBtn.mbAbort], 0);
+  case retorno  of
+     1 : showMessage(' Ok');
+     2:  showMessage('Cancel');
+     3: close; //showMessage('Abort');
+     6: showMessage(' Yes');
+     end;
 
-  MessageDlg(mensagem, TMsgDlgType.mtInformation,
-    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbOK, TMsgDlgBtn.mbCancel,
-    TMsgDlgBtn.mbAbort], 0);
   Memo1.Clear;
   Memo1.Lines.Add(mensagem);
 end;
@@ -87,6 +95,12 @@ begin
   Nomes[7] := 'ivo';
   Nomes[8] := 'Ivan';
   Nomes[9] := 'Pedro';
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+
+begin
+  Memo1.Lines.Clear;
 end;
 
 end.
